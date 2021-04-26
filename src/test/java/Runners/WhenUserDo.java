@@ -49,7 +49,7 @@ public class WhenUserDo {
     @Test
     public void SignUpFull(){
         actor.has(OpenPageAutomation.open());
-        actor.has(SIgnUpFull.doRegister(
+        actor.has(SignUpFull.doRegister(
                 EMAIL_SIGNUPFULL,
                 NAME,
                 LASTNAME,
