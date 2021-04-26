@@ -25,10 +25,10 @@ public class WhenUserDo {
 
     }
     @Test
-    public  void SignUp(){
+    public  void SignUpShort(){
         actor.has(OpenPageAutomation.open());
-        actor.has(SignUp.doRegister(
-                "neiderrestre11119@gmail.com",
+        actor.has(SignUpShort.doRegister(
+                "neiderrestre113119@gmail.com",
                 "Mauricio",
                 "Restrepo",
                 "5p44622W46cfQ5@",
@@ -42,6 +42,30 @@ public class WhenUserDo {
                 "3255454665",
                 "nei"
         ));
+    }
+    @Test
+    public void SignUpFull(){
+        actor.has(OpenPageAutomation.open());
+        actor.has(SIgnUpFull.doRegister(
+                "neiderrestre112119@gmail.com",
+                "Mauricio",
+                "Restrepo",
+                "5p44622W46cfQ5@",
+                "19",
+                "8",
+                "1995",
+                "madisson 48 A",
+                "new York",
+                "California",
+                "55032",
+                "3255454665",
+                "nei",
+                "Sured",
+                "maddison 50 A",
+                "llenar infor aca",
+                "54541544"
+        ));
+
     }
 
 

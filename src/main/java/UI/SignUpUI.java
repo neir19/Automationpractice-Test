@@ -19,4 +19,10 @@ public class SignUpUI {
     public static  Target PHONE_FIELD= Target.the("proneField").located(By.id("phone_mobile"));
     public static  Target ALIAS_FIELD= Target.the("aliasField").located(By.id("alias"));
     public static  Target REGISTER_BTN= Target.the("regiserBtn").located(By.id("submitAccount"));
+    public static  Target NEWLETTER_CHECKBOX= Target.the("newsletterCheck").located(By.id("newsletter"));
+    public static  Target OFFERS_CHECKBOX= Target.the("offersCheck").located(By.id("optin"));
+    public static  Target COMPANY_FIELD= Target.the("companyField").located(By.id("company"));
+    public static  Target ADDRESS_FIELD2= Target.the("addressField2").located(By.id("address2"));
+    public static  Target INFO_FIELD= Target.the("infoField").located(By.id("other"));
+    public static  Target HOMEPHONE_FIELD= Target.the("homePhoneField").located(By.id("phone"));
 }
