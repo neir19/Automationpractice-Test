@@ -1,6 +1,5 @@
 package Runners;
 
-import Constants.ConstansToInpunts;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -79,14 +78,26 @@ public class WhenUserDo {
     }
 
     @Test
-    public void aPurchase(){
+    public void aPurchaseWithoutLogin(){
         actor.has(OpenPageAutomation.open());
         actor.has(SearchToPage.search(WORD_SEARCH));
         actor.has(AddtoCar.presstoAdd());
         actor.has(OpenToCar.open());
-        actor.has(CheckToBuy.click(
+        actor.has(CheckToBuyWithoutLogin.click(
                 EMAIL_SIGNIN,
                 PASSWD_SIGNIN));
+    }
+    @Test
+    public void aPurchaseWithLogin(){
+        actor.has(OpenPageAutomation.open());
+        actor.has(SignIn.loginWithAccout(EMAIL_SIGNIN,PASSWD_SIGNIN));
+        actor.has(SearchToPage.search(WORD_SEARCH));
+        actor.has(AddtoCar.presstoAdd());
+        actor.has(OpenToCar.open());
+        actor.has(CheckToBuyWithLogin.click());
+
+
+
     }
 
 
