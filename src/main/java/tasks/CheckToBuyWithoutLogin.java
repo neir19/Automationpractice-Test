@@ -14,17 +14,17 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CheckToBuy implements Task {
+public class CheckToBuyWithoutLogin implements Task {
     private final String username;
     private final String password;
 
-    public CheckToBuy(String username, String password) {
+    public CheckToBuyWithoutLogin(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
     public static Performable click(String username, String password) {
-        return  instrumented(CheckToBuy.class,username,password);
+        return  instrumented(CheckToBuyWithoutLogin.class,username,password);
     }
 
     @Override
