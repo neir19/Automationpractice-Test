@@ -1,5 +1,6 @@
 package tasks;
 
+import UI.CreateAccountTitleUI;
 import UI.MyAccountTitleUI;
 import UI.SignInUI;
 import UI.SignUpUI;
@@ -12,6 +13,7 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 import questions.SignInQuestion;
+import questions.SignUpQuestions;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -64,10 +66,11 @@ public class SignUpShort implements Task {
         actor.attemptsTo(
                 Enter.theValue(email).into(SignInUI.EMAIL_CREATE_FIELD),
                 Click.on(SignInUI.CREATE_BTN),
-                WaitUntil.the(MyAccountTitleUI.TITLE_TEXTFIELD, isVisible())
+                WaitUntil.the(CreateAccountTitleUI.TITLECREATE_FIELD, isVisible())
 
 
         );
+        actor.should(seeThat(SignUpQuestions.is(), equalTo("CREATE AN ACCOUNT")));
 
 
 
