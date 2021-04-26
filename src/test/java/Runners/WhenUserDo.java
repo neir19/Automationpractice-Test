@@ -25,7 +25,7 @@ public class WhenUserDo {
 
     }
     @Test
-    public  void doSignUp(){
+    public  void SignUp(){
         actor.has(OpenPageAutomation.open());
         actor.has(SignUp.doRegister(
                 "neiderrestre11119@gmail.com",
@@ -46,13 +46,13 @@ public class WhenUserDo {
 
 
     @Test
-    public  void doSignIn(){
+    public  void SignIn(){
         actor.has(OpenPageAutomation.open());
         actor.has(SignIn.loginWithAccout("neiderreestrepo1910@hotmail.com","99WLx@P5!zS3Qc!"));
     }
 
     @Test
-    public void BuyToProduct(){
+    public void aPurchase(){
         actor.has(OpenPageAutomation.open());
         actor.has(SearchToPage.search("Shirt"));
         actor.has(AddtoCar.presstoAdd());
