@@ -17,7 +17,7 @@ public class AddtoCar  implements Task {
     }
 
     @Override
-    @Step("{0} presiona el botón para agregar al carrito")
+    @Step("{0} presiona el boton para agregar al carrito")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(ProductImgUI.PRODUCT_IMG)
