@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -21,6 +22,7 @@ public class SearchToPage implements Task {
     }
 
     @Override
+    @Step("{0} busca el producto que desea comprar")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Enter.theValue(word).into(SearchUI.SEARCH_FIELD),

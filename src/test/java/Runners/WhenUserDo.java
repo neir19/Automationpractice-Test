@@ -21,6 +21,7 @@ public class WhenUserDo {
     public void loadPage(){
         actor=Actor.named("Sured");
         actor.can(BrowseTheWeb.with(navegador));
+        navegador.manage().window().maximize();
 
     }
     @Test
