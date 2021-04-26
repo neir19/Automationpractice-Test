@@ -1,5 +1,6 @@
 package Runners;
 
+import Constants.ConstansToInpunts;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -10,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import tasks.*;
 
+import static Constants.ConstansToInpunts.*;
+
 @RunWith(SerenityRunner.class)
 public class WhenUserDo {
     Actor actor;
@@ -19,7 +22,7 @@ public class WhenUserDo {
 
     @Before
     public void loadPage(){
-        actor=Actor.named("Sured");
+        actor=Actor.named(ACTOR_NAMED);
         actor.can(BrowseTheWeb.with(navegador));
         navegador.manage().window().maximize();
 
@@ -28,42 +31,42 @@ public class WhenUserDo {
     public  void SignUpShort(){
         actor.has(OpenPageAutomation.open());
         actor.has(SignUpShort.doRegister(
-                "neiderrestre113119@gmail.com",
-                "Mauricio",
-                "Restrepo",
-                "5p44622W46cfQ5@",
-                "19",
-                "8",
-                "1995",
-                "madisson 48 A",
-                "new York",
-                "California",
-                "55032",
-                "3255454665",
-                "nei"
+                EMAIL_SIGNUPSHORT,
+                NAME,
+                LASTNAME,
+                PASSWD_SIGNUP,
+                DAY,
+                MONTH,
+                YEAR,
+                ADDRESS_1,
+                CITY,
+                STATE,
+                POSTAL_CODE,
+                PHONE_NUMBER,
+                ALIAS
         ));
     }
     @Test
     public void SignUpFull(){
         actor.has(OpenPageAutomation.open());
         actor.has(SIgnUpFull.doRegister(
-                "neiderrestre112119@gmail.com",
-                "Mauricio",
-                "Restrepo",
-                "5p44622W46cfQ5@",
-                "19",
-                "8",
-                "1995",
-                "madisson 48 A",
-                "new York",
-                "California",
-                "55032",
-                "3255454665",
-                "nei",
-                "Sured",
-                "maddison 50 A",
-                "llenar infor aca",
-                "54541544"
+                EMAIL_SIGNUPFULL,
+                NAME,
+                LASTNAME,
+                PASSWD_SIGNUP,
+                DAY,
+                MONTH,
+                YEAR,
+                ADDRESS_1,
+                CITY,
+                STATE,
+                POSTAL_CODE,
+                PHONE_NUMBER,
+                ALIAS,
+                COMPANY,
+                ADDRES_2,
+                INFO,
+                HOME_PONE
         ));
 
     }
@@ -72,18 +75,18 @@ public class WhenUserDo {
     @Test
     public  void SignIn(){
         actor.has(OpenPageAutomation.open());
-        actor.has(SignIn.loginWithAccout("neiderreestrepo1910@hotmail.com","99WLx@P5!zS3Qc!"));
+        actor.has(SignIn.loginWithAccout(EMAIL_SIGNIN,PASSWD_SIGNIN));
     }
 
     @Test
     public void aPurchase(){
         actor.has(OpenPageAutomation.open());
-        actor.has(SearchToPage.search("Shirt"));
+        actor.has(SearchToPage.search(WORD_SEARCH));
         actor.has(AddtoCar.presstoAdd());
         actor.has(OpenToCar.open());
         actor.has(CheckToBuy.click(
-                "neiderreestrepo1910@hotmail.com",
-                "99WLx@P5!zS3Qc!"));
+                EMAIL_SIGNIN,
+                PASSWD_SIGNIN));
     }
 
 
