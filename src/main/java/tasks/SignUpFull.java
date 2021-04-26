@@ -1,6 +1,6 @@
 package tasks;
 
-import UI.MyAccountTitleUI;
+import UI.CreateAccountTitleUI;
 import UI.SignInUI;
 import UI.SignUpUI;
 import net.serenitybdd.screenplay.Actor;
@@ -11,13 +11,14 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import questions.SignInQuestion;
+import questions.SignUpQuestions;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SIgnUpFull implements Task {
+public class SignUpFull implements Task {
     private final String email;
     private final String name;
     private final String lastname;
@@ -36,7 +37,7 @@ public class SIgnUpFull implements Task {
     private final String info;
     private final String homePhone;
 
-    public SIgnUpFull(String email, String name, String lastname, String password, String day, String month, String year, String address, String city, String state, String postalcode, String number, String alias, String company, String address2, String info, String homePhone) {
+    public SignUpFull(String email, String name, String lastname, String password, String day, String month, String year, String address, String city, String state, String postalcode, String number, String alias, String company, String address2, String info, String homePhone) {
         this.email = email;
         this.name = name;
         this.lastname = lastname;
@@ -56,7 +57,7 @@ public class SIgnUpFull implements Task {
         this.homePhone = homePhone;
     }
     public static Performable doRegister(String email, String name, String lastname, String password, String day, String month, String year, String address, String city, String state, String postalcode, String number, String alias,String company, String address2, String info, String homePhone ) {
-        return  instrumented(SIgnUpFull.class,email,name,lastname,password,day,month,year,address,city,state,postalcode,number, alias,company,address2,info,homePhone);
+        return  instrumented(SignUpFull.class,email,name,lastname,password,day,month,year,address,city,state,postalcode,number, alias,company,address2,info,homePhone);
     }
 
     @Override
@@ -64,10 +65,12 @@ public class SIgnUpFull implements Task {
         actor.attemptsTo(
                 Enter.theValue(email).into(SignInUI.EMAIL_CREATE_FIELD),
                 Click.on(SignInUI.CREATE_BTN),
-                WaitUntil.the(MyAccountTitleUI.TITLE_TEXTFIELD, isVisible())
+                WaitUntil.the(CreateAccountTitleUI.TITLECREATE_FIELD, isVisible())
 
 
         );
+        actor.should(seeThat(SignUpQuestions.is(), equalTo("CREATE AN ACCOUNT")));
+
 
         actor.attemptsTo(
                 Click.on(SignUpUI.GENER_CHECK),
